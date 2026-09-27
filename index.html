@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURELIA LUXE | Demifine® Everyday Luxury Jewellery | 18K Gold Vermeil & 925 Silver</title>
+  <meta name="description" content="Shop handcrafted Demifine® jewellery for everyday wear from Aurelia Luxe. Waterproof, anti-tarnish, and hypoallergenic bracelets, necklaces, rings, earrings, and mangalsutras created by Jagruti Patil.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT MARQUEE / TICKER
+       ========================================================================== -->
+  <aside class="top-ticker" aria-label="Announcements">
+    <div class="ticker-content">
+      <span class="ticker-highlight">LIMITED OFFER</span>
+      <span id="ticker-cycle-text" class="ticker-cycle-text">
+        ✨ Stack Up Fest – Buy Any 3 @ ₹2,999 | Free Express Shipping Across India
+      </span>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top-row">
+        <!-- Left: Pincode Location Badge -->
+        <div class="header-left-tools">
+          <div class="pincode-quick-badge" id="header-delivery-pin" onclick="document.getElementById('pincode-input-field').focus(); document.getElementById('delivery-section').scrollIntoView({behavior:'smooth'});">
+            <i class="fas fa-map-marker-alt"></i> Deliver to: <strong>Check Pincode</strong>
+          </div>
+        </div>
+
+        <!-- Center: Brand Logo -->
+        <a href="#" class="brand-logo-wrap" aria-label="Aurelia Luxe Home">
+          <h1>A U R E L I A</h1>
+          <span class="logo-subtext">Demifine® Luxury Jewellery</span>
+        </a>
+
+        <!-- Right: Actions (Search, Wishlist, Cart) -->
+        <div class="header-actions">
+          <button class="header-action-btn" onclick="openSearchModal()" title="Search Jewellery" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+          
+          <button class="header-action-btn" onclick="openWishlist()" title="Saved Wishlist" aria-label="Wishlist">
+            <i class="far fa-heart"></i>
+            <span class="action-badge-count wishlist-header-count">0</span>
+          </button>
+
+          <button class="header-cart-btn" onclick="openCart()" title="Shopping Bag" aria-label="Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Bag (<span class="cart-header-count">0</span>)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav-bar" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('new')">New Arrivals <span class="nav-tag-badge">NEW</span></a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('bestsellers')">Best Sellers <span class="nav-tag-badge" style="background:#e5a93b;">HOT</span></a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('earrings')">Earrings</a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('necklaces')">Necklaces & Chains</a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('bracelets')">Bracelets</a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('rings')">Rings</a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('mangalsutra')">Mangalsutras <span class="nav-tag-badge luxe">LUXE</span></a></li>
+          <li class="nav-link-item"><a href="#shop-collection-section" onclick="filterCategory('mens')">Men's Luxe</a></li>
+          <li class="nav-link-item"><a href="#shop-confidence">Why Demifine?</a></li>
+          <li class="nav-link-item"><a href="#founder-story">Jagruti's Story</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       CATEGORY CIRCLES (PALMONAS SIGNATURE STORY NAV)
+       ========================================================================== -->
+  <section class="category-circles-section" aria-label="Categories Story Circles">
+    <div class="container">
+      <div class="category-circles-scroll">
+        <div class="category-circle-item" onclick="navigateCategoryStory('earrings')">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=200&q=80" alt="Earrings">
+          </div>
+          <span class="circle-title">Earrings</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('necklaces')">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=200&q=80" alt="Necklaces">
+          </div>
+          <span class="circle-title">Necklaces</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('bracelets')">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1611591475155-426c043e480b?auto=format&fit=crop&w=200&q=80" alt="Bracelets">
+          </div>
+          <span class="circle-title">Bracelets</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('rings')">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80" alt="Rings">
+          </div>
+          <span class="circle-title">Rings</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('mangalsutra')">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=200&q=80" alt="Mangalsutra">
+          </div>
+          <span class="circle-title">Mangalsutras</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('mens')">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=200&q=80" alt="Men's Luxe">
+          </div>
+          <span class="circle-title">Men's</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('under999')">
+          <div class="circle-img-wrap" style="background: linear-gradient(135deg, #9c27b0, #c5a059);">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=200&q=80" alt="Under 999">
+          </div>
+          <span class="circle-title">Flat ₹999</span>
+        </div>
+
+        <div class="category-circle-item" onclick="navigateCategoryStory('bestsellers')">
+          <div class="circle-img-wrap" style="background: linear-gradient(135deg, #d4af37, #ff4757);">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=200&q=80" alt="Best Sellers">
+          </div>
+          <span class="circle-title">Best Sellers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HERO BANNER SLIDER
+       ========================================================================== -->
+  <section class="hero-slider-section" aria-label="Hero Showcase">
+    <div class="hero-slider-wrap">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <img class="hero-slide-bg" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1800&q=80" alt="Everyday Demi-Fine Luxury">
+        <div class="hero-overlay-gradient"></div>
+        <div class="container">
+          <div class="hero-content-box">
+            <span class="hero-pretitle">Everyday Demi-Fine Luxury</span>
+            <h2 class="hero-title">Jewellery That <span>Doesn't Sit in a Box</span></h2>
+            <p class="hero-description">
+              Crafted with 18K thick gold vermeil over 925 sterling silver and surgical steel. 100% waterproof, sweatproof, and guaranteed skin-safe for your everyday hustle.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#shop-collection-section" class="btn-primary-luxury">Shop Best Sellers <i class="fas fa-arrow-right"></i></a>
+              <a href="#founder-story" class="btn-outline-luxury">The Aurelia Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <img class="hero-slide-bg" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1800&q=80" alt="Stack Up Festival">
+        <div class="hero-overlay-gradient"></div>
+        <div class="container">
+          <div class="hero-content-box">
+            <span class="hero-pretitle">The Stack Up Fest</span>
+            <h2 class="hero-title">Buy Any 3 <span>Pieces at ₹2,999</span></h2>
+            <p class="hero-description">
+              Mix and match our bestselling tennis bracelets, herringbone chokers, and solitaire hoops. Use code <strong>STACKUP</strong> at checkout.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#shop-collection-section" onclick="filterCategory('under999')" class="btn-primary-luxury">Explore The Fest <i class="fas fa-gem"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <img class="hero-slide-bg" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1800&q=80" alt="Modern Mangalsutra Collection">
+        <div class="hero-overlay-gradient"></div>
+        <div class="container">
+          <div class="hero-content-box">
+            <span class="hero-pretitle">Sacred Symbols Modernised</span>
+            <h2 class="hero-title">Contemporary <span>Mangalsutras</span></h2>
+            <p class="hero-description">
+              Featherlight, anti-tarnish bracelets and minimal pendants with sacred black beads. Designed to be worn every single day from boardroom meetings to cocktail evenings.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#shop-collection-section" onclick="filterCategory('mangalsutra')" class="btn-primary-luxury">Shop Mangalsutras <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Navigation Dots -->
+    <div class="slider-controls">
+      <div class="slider-dot active"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EXPRESS DELIVERY PINCODE CHECKER & USP STRIP
+       ========================================================================== -->
+  <section class="delivery-usp-bar" id="delivery-section">
+    <div class="container">
+      <div class="delivery-usp-grid">
+        <div class="usp-features-row">
+          <div class="usp-feature-item">
+            <span class="usp-feature-icon"><i class="fas fa-shield-alt"></i></span>
+            <span>100% Anti-Tarnish Warranty</span>
+          </div>
+          <div class="usp-feature-item">
+            <span class="usp-feature-icon"><i class="fas fa-tint-slash"></i></span>
+            <span>Waterproof & Sweatproof</span>
+          </div>
+          <div class="usp-feature-item">
+            <span class="usp-feature-icon"><i class="fas fa-leaf"></i></span>
+            <span>Skin-Safe & Hypoallergenic</span>
+          </div>
+          <div class="usp-feature-item">
+            <span class="usp-feature-icon"><i class="fas fa-truck"></i></span>
+            <span>Free Express Shipping</span>
+          </div>
+        </div>
+
+        <div class="pincode-checker-box">
+          <input type="text" id="pincode-input-field" placeholder="Enter 6-digit Pincode" maxlength="6">
+          <button class="pincode-check-btn" onclick="checkPincodeDelivery()">Check Delivery</button>
+        </div>
+      </div>
+      <div id="pincode-result-message" style="display:none; font-size:0.8rem; margin-top:8px; padding-left:4px;"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROMO HERO STRIP: STACK UP FEST WITH LIVE COUNTDOWN
+       ========================================================================== -->
+  <section class="promo-strip-fest">
+    <div class="container">
+      <div class="promo-strip-content">
+        <div class="promo-strip-text">
+          <h3><span class="promo-badge-tag">FLASH FEST</span> STACK UP CELEBRATION: BUY 3 GET 1 FREE</h3>
+          <p>Hand-picked everyday essentials | Extra 10% instant checkout discount with code <strong>AURELIA10</strong></p>
+        </div>
+
+        <div class="countdown-box">
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-hours">14</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-mins">36</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-secs">42</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHOP THE COLLECTION (TABS, FILTERS & PRODUCT GRID)
+       ========================================================================== -->
+  <main class="container" id="shop-collection-section">
+    <div class="section-header-wrap">
+      <span class="section-pretitle">Curated Demi-Fine Collection</span>
+      <h2 class="section-title">Everyday Luxe Essentials</h2>
+      <p class="section-subtitle">Designed to shine on your busiest workdays, sweatproof in gym sessions, and elegant on weekend dates.</p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="catalog-tabs-container">
+      <button class="catalog-tab-btn active" data-category="all" onclick="filterCategory('all', this)">All Pieces</button>
+      <button class="catalog-tab-btn" data-category="bestsellers" onclick="filterCategory('bestsellers', this)">Best Sellers 🔥</button>
+      <button class="catalog-tab-btn" data-category="under999" onclick="filterCategory('under999', this)">Flat ₹999 Edit</button>
+      <button class="catalog-tab-btn" data-category="earrings" onclick="filterCategory('earrings', this)">Earrings</button>
+      <button class="catalog-tab-btn" data-category="necklaces" onclick="filterCategory('necklaces', this)">Necklaces</button>
+      <button class="catalog-tab-btn" data-category="bracelets" onclick="filterCategory('bracelets', this)">Bracelets</button>
+      <button class="catalog-tab-btn" data-category="rings" onclick="filterCategory('rings', this)">Rings</button>
+      <button class="catalog-tab-btn" data-category="mangalsutra" onclick="filterCategory('mangalsutra', this)">Mangalsutras</button>
+      <button class="catalog-tab-btn" data-category="mens" onclick="filterCategory('mens', this)">Men's Luxe</button>
+    </div>
+
+    <!-- Filter Count & Sorting Bar -->
+    <div class="catalog-filter-bar">
+      <span class="filter-results-count" id="product-count-display">Showing 16 demi-fine pieces</span>
+      <div>
+        <label for="catalog-sort" style="font-size:0.8rem; color:#6b6660; margin-right:6px;">Sort By:</label>
+        <select id="catalog-sort" class="catalog-sort-select">
+          <option value="featured">Featured Collection</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Customer Rating</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Products Grid (Dynamically Populated by products.js & app.js) -->
+    <div class="products-grid" id="products-grid">
+      <!-- Injected via JavaScript -->
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       DEMI-FINE JEWELLERY SPOTLIGHT & COMPARISON TABLE
+       ========================================================================== -->
+  <section class="demifine-spotlight-section" id="shop-confidence">
+    <div class="container">
+      <div class="demifine-grid-2col">
+        <div class="demifine-info-text">
+          <span class="section-pretitle">The Demi-Fine Revolution</span>
+          <h2>What Exactly is Demifine® Jewellery?</h2>
+          <p>
+            Traditional fine gold jewellery costs a fortune and stays locked inside bank lockers out of fear. Fashion jewellery tarnishes in weeks and turns your skin green with cheap brass and nickel alloys.
+          </p>
+          <p>
+            <strong>Aurelia Demifine®</strong> bridges the gap: genuine 925 sterling silver and medical-grade surgical steel, sealed in <strong>2.5 microns of real 18K gold vermeil</strong>. You get the opulent weight and shine of real gold at a price that lets you collect every style guilt-free.
+          </p>
+          <button class="btn-primary-luxury" onclick="document.getElementById('shop-collection-section').scrollIntoView({behavior:'smooth'})">
+            Explore Collection <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Cheap Fashion Jewellery</th>
+                <th class="highlight-col">Aurelia Demifine®</th>
+                <th>Solid 22K Gold</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Price Point</strong></td>
+                <td>₹299 - ₹699</td>
+                <td class="highlight-col"><strong>₹899 - ₹1,799</strong></td>
+                <td>₹60,000+</td>
+              </tr>
+              <tr>
+                <td><strong>Water & Sweat Proof</strong></td>
+                <td><span class="cross-icon">✗</span> Flakes in water</td>
+                <td class="highlight-col"><span class="check-icon">✓</span> 100% Shower-Safe</td>
+                <td><span class="check-icon">✓</span> Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Skin Green Tint?</strong></td>
+                <td><span class="cross-icon">✗</span> Irritates skin</td>
+                <td class="highlight-col"><span class="check-icon">✓</span> Zero Nickel/Lead</td>
+                <td><span class="check-icon">✓</span> No</td>
+              </tr>
+              <tr>
+                <td><strong>Everyday Wearability</strong></td>
+                <td>Single season</td>
+                <td class="highlight-col"><strong>Years of daily wear</strong></td>
+                <td>High risk of theft</td>
+              </tr>
+              <tr>
+                <td><strong>Anti-Tarnish Warranty</strong></td>
+                <td>None</td>
+                <td class="highlight-col"><span class="check-icon">✓</span> 1-Year Guarantee</td>
+                <td>N/A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHOP WITH CONFIDENCE (4 PILLARS)
+       ========================================================================== -->
+  <section class="shop-confidence-section">
+    <div class="container">
+      <div class="section-header-wrap" style="margin-top:0;">
+        <span class="section-pretitle">Uncompromising Quality</span>
+        <h2 class="section-title">Shop With 100% Confidence</h2>
+      </div>
+
+      <div class="confidence-cards-grid">
+        <div class="confidence-card">
+          <div class="confidence-card-icon"><i class="fas fa-heart"></i></div>
+          <h4>SKIN SAFE</h4>
+          <p>Zero nickel. Zero brass. Pure hypoallergenic surgical steel and 925 sterling silver designed for all-day comfort without itching or redness.</p>
+        </div>
+
+        <div class="confidence-card">
+          <div class="confidence-card-icon"><i class="fas fa-gem"></i></div>
+          <h4>18K GOLD VERMEIL</h4>
+          <p>Thick 2.5-micron gold layer bonded via advanced vacuum PVD deposition. Survives showers, perfume mists, and workouts with ease.</p>
+        </div>
+
+        <div class="confidence-card">
+          <div class="confidence-card-icon"><i class="fas fa-certificate"></i></div>
+          <h4>LAB-GROWN DIAMONDS</h4>
+          <p>SGL-Certified ethical lab diamond simulants with identical refractive sparkle to natural mined diamonds, without the environmental cost.</p>
+        </div>
+
+        <div class="confidence-card">
+          <div class="confidence-card-icon"><i class="fas fa-sync-alt"></i></div>
+          <h4>LIFETIME RE-PLATING</h4>
+          <p>We stand behind every single piece we make. Enjoy 30-day hassle-free exchanges and lifetime replating service on demand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOUNDER STORY SECTION (MADE BY JAGRUTI PATIL)
+       ========================================================================== -->
+  <section class="founder-story-section" id="founder-story">
+    <div class="container">
+      <div class="founder-story-grid">
+        <div class="founder-story-img-box">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Jagruti Patil - Founder of Aurelia Luxe">
+          <div class="founder-quote-tag">
+            "Luxury should live with you, not wait in a drawer."
+          </div>
+        </div>
+
+        <div class="founder-story-content">
+          <span class="brand-tagline">The Story Behind The Brand</span>
+          <h2>Crafted With Passion by Jagruti Patil</h2>
+          <p>
+            "Like millions of jewellery lovers, I was tired of the extremes: either spending a month's salary on real 22K gold that felt too fragile and risky to wear on a crowded commute, or buying fast-fashion pieces that turned black after two sprays of perfume."
+          </p>
+          <p>
+            "I created <strong>Aurelia Luxe</strong> with a singular mission: to bring true demi-fine craftsmanship to everyday life. Pieces that look and feel indistinguishable from solid gold, that you can wear straight from the gym into a client meeting, without ever babysitting them."
+          </p>
+          <p>
+            "Every clasp, stone setting, and gold thickness is individually inspected. When you wear Aurelia, you wear jewellery created for real life."
+          </p>
+
+          <div class="founder-signature">
+            <img class="founder-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Jagruti Patil">
+            <div class="founder-sign-text">
+              <h5>Jagruti Patil</h5>
+              <span>Founder & Creative Director | Aurelia Luxe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VERIFIED REVIEWS & TESTIMONIALS
+       ========================================================================== -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-header-wrap">
+        <span class="section-pretitle">Loved By 8,00,000+ Customers</span>
+        <h2 class="section-title">Real Words From Real Wearers</h2>
+      </div>
+
+      <div class="reviews-cards-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <h4 class="review-title">"Looks and feels like real 22k gold!"</h4>
+          <p class="review-text">"I have been wearing the Hearts All Over Bracelet every single day for 4 months now — in the shower, gym, and office. Not a speck of tarnishing! Proud of Jagruti Patil's curation."</p>
+          <div class="review-author-row">
+            <span class="author-name">Ananya D. (Mumbai)</span>
+            <span class="verified-buyer-badge"><i class="fas fa-check-circle"></i> Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <h4 class="review-title">"Best men's chain in India hands down"</h4>
+          <p class="review-text">"Most gold plated chains turn brassy copper in 2 weeks. The Sovereign Cuban Chain from Aurelia Luxe is heavy, super premium, and survived swimming pool water with zero fading."</p>
+          <div class="review-author-row">
+            <span class="author-name">Rohan M. (Delhi NCR)</span>
+            <span class="verified-buyer-badge"><i class="fas fa-check-circle"></i> Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <h4 class="review-title">"Modern mangalsutra is a gamechanger"</h4>
+          <p class="review-text">"I was looking for a daily wear mangalsutra that doesn't feel like a heavy bridal necklace. This Sarvani bracelet is so delicate and chic! My colleagues all asked where I bought it."</p>
+          <div class="review-author-row">
+            <span class="author-name">Pooja H. (Bengaluru)</span>
+            <span class="verified-buyer-badge"><i class="fas fa-check-circle"></i> Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <h4 class="review-title">"Zero ear redness or allergy"</h4>
+          <p class="review-text">"I have ultra sensitive ears that react to anything less than solid 18K gold. These Athena hoops caused zero soreness even while sleeping in them. 10/10 recommend Aurelia Luxe!"</p>
+          <div class="review-author-row">
+            <span class="author-name">Simran K. (Chandigarh)</span>
+            <span class="verified-buyer-badge"><i class="fas fa-check-circle"></i> Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FREQUENTLY ASKED QUESTIONS (FAQ)
+       ========================================================================== -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header-wrap">
+        <span class="section-pretitle">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion-wrap">
+        <div class="faq-item active">
+          <button class="faq-question-btn">
+            <span>Can I wear Aurelia jewellery in the shower or gym?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer-body">
+            Yes! All Aurelia Luxe demi-fine pieces are waterproof and sweatproof. Our vacuum PVD plating over 316L stainless steel and 925 sterling silver protects against freshwater and perspiration. We advise rinsing with plain water after swimming in chlorinated pools or salty ocean water.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Will Aurelia jewellery turn my skin green?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer-body">
+            Never. Skin greening is caused by copper and cheap brass alloys reacting with perspiration. Aurelia pieces are 100% hypoallergenic, nickel-free, and lead-free.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>What is the difference between gold plated and 18K Gold Vermeil?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer-body">
+            Standard flash gold plating is less than 0.175 microns over brass, fading in weeks. Gold Vermeil requires a thick layer of at least 2.5 microns of 18K solid gold over pure 925 Sterling Silver, making it drastically more durable and radiant for years of daily use.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>What is your return and warranty policy?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer-body">
+            We provide a 30-Day Hassle-Free Exchange Policy and a 1-Year Comprehensive Anti-Tarnish Warranty on all demi-fine collections. If you experience unexpected discoloration, our support team will replace or re-plate your item immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEWSLETTER SECTION
+       ========================================================================== -->
+  <section class="newsletter-strip">
+    <div class="container">
+      <div class="newsletter-box">
+        <h3>Join the Aurelia Luxe Club</h3>
+        <p>Subscribe to receive secret flash discounts, new collection drops, and styling edits straight to your inbox.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+          <input type="email" id="newsletter-email-input" placeholder="Enter your email address..." required>
+          <button type="submit" class="btn-primary-luxury">Claim 10% Off</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <h4>AURELIA LUXE</h4>
+          <span class="footer-tagline">Demifine® Everyday Luxury</span>
+          <p>
+            Affordable everyday alternative to heavy gold jewellery. Handcrafted with surgical steel, 925 sterling silver, and thick 18K gold vermeil.
+          </p>
+          <div class="footer-socials-row">
+            <a href="#" class="social-circle-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-circle-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-circle-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-circle-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h5>Categories</h5>
+          <ul class="footer-links-list">
+            <li><a href="#shop-collection-section" onclick="filterCategory('earrings')">Earrings</a></li>
+            <li><a href="#shop-collection-section" onclick="filterCategory('necklaces')">Necklaces & Chains</a></li>
+            <li><a href="#shop-collection-section" onclick="filterCategory('bracelets')">Bracelets & Bangles</a></li>
+            <li><a href="#shop-collection-section" onclick="filterCategory('rings')">Solitaire Rings</a></li>
+            <li><a href="#shop-collection-section" onclick="filterCategory('mangalsutra')">Mangalsutras</a></li>
+            <li><a href="#shop-collection-section" onclick="filterCategory('mens')">Men's Collection</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h5>Policy</h5>
+          <ul class="footer-links-list">
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">30-Day Return & Exchange</a></li>
+            <li><a href="#">1-Year Anti-Tarnish Warranty</a></li>
+            <li><a href="#">Lifetime BuyBack Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h5>Help & Support</h5>
+          <ul class="footer-links-list">
+            <li><a href="#">Track Order Status</a></li>
+            <li><a href="#">Start a Return</a></li>
+            <li><a href="#">Jewellery Care Guide</a></li>
+            <li><a href="#">Ring Size Chart</a></li>
+            <li><a href="#">Contact Concierge</a></li>
+            <li><a href="#">Store Locator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h5>Customer Care</h5>
+          <p style="margin-bottom:8px;"><i class="fas fa-envelope" style="color:var(--primary-gold);"></i> support@aurelialuxe.com</p>
+          <p style="margin-bottom:8px;"><i class="fas fa-phone-alt" style="color:var(--primary-gold);"></i> +91 98765 43210</p>
+          <p style="font-size:0.75rem; color:#857e75;">Mon - Sat | 10:00 AM - 7:00 PM IST</p>
+          <div style="margin-top:14px; font-size:0.75rem;">
+            <strong>Aurelia Luxe Fashion Pvt Ltd</strong><br>
+            Koregaon Park Annexe, Pune, Maharashtra 411036.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">
+          &copy; 2026 <strong>AURELIA LUXE DEMIFINE®</strong>. All Rights Reserved.
+        </p>
+        <p class="footer-copyright">
+          Designed, Curated & Built with ❤️ by <span class="creator-credit">Jagruti Patil</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL BACKDROP OVERLAY
+       ========================================================================== -->
+  <div class="modal-backdrop-overlay" id="modal-overlay"></div>
+
+  <!-- ==========================================================================
+       SLIDE-OVER SHOPPING BAG (CART DRAWER)
+       ========================================================================== -->
+  <div class="cart-slide-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Bag">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <span>Shopping Bag</span>
+        <span class="cart-count-pill cart-count-pill">0</span>
+      </div>
+      <button class="btn-close-drawer" onclick="closeCart()" title="Close Bag" aria-label="Close Bag">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Free Gift Progress Bar -->
+    <div class="cart-progress-bar-wrap">
+      <div class="cart-progress-text" id="gift-progress-text">
+        Add <strong>₹2,999</strong> to unlock a <strong>FREE Care Kit!</strong>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="gift-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Items List Body -->
+    <div class="cart-items-body" id="cart-items-container">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Cart Footer & Checkout Action -->
+    <div class="cart-drawer-footer">
+      <div class="coupon-input-group">
+        <input type="text" id="cart-coupon-input" placeholder="Coupon Code (e.g. AURELIA10, STACKUP)">
+        <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">₹0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Coupon Discount</span>
+        <span id="cart-discount" style="color:#c24141;">- ₹0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Shipping & Insurance</span>
+        <span style="color:#2e7d32; font-weight:600;">FREE</span>
+      </div>
+      <div class="cart-summary-line total-line">
+        <span>Total Payable</span>
+        <span id="cart-total">₹0</span>
+      </div>
+
+      <button class="btn-proceed-checkout" onclick="openCheckout()">
+        Proceed to Checkout <i class="fas fa-lock" style="font-size:0.8rem; margin-left:4px;"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PRODUCT QUICK VIEW MODAL
+       ========================================================================== -->
+  <div class="quick-view-modal" id="quick-view-modal" role="dialog" aria-label="Product Details">
+    <button class="quick-view-close-btn" onclick="closeAllModals()" title="Close Window" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div id="quick-view-content">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SIMULATED CHECKOUT MODAL
+       ========================================================================== -->
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-label="Checkout">
+    <button class="quick-view-close-btn" onclick="closeAllModals()" title="Close Checkout" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div id="checkout-form-screen">
+      <h3 class="checkout-modal-title">Secure Express Checkout</h3>
+      <p class="checkout-subtitle">Total Payable: <strong id="checkout-payable-amount" style="color:#c5a059;">₹0</strong> | 256-Bit Encrypted</p>
+
+      <form onsubmit="submitOrder(event)" class="checkout-form-grid">
+        <div class="checkout-input-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jagruti" required>
+        </div>
+        <div class="checkout-input-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Patil" required>
+        </div>
+        <div class="checkout-input-group form-full-width">
+          <label>Email Address</label>
+          <input type="email" placeholder="jagruti@example.com" required>
+        </div>
+        <div class="checkout-input-group form-full-width">
+          <label>Street Address</label>
+          <input type="text" placeholder="Flat No., Apartment, Street" required>
+        </div>
+        <div class="checkout-input-group">
+          <label>City</label>
+          <input type="text" placeholder="Pune / Mumbai" required>
+        </div>
+        <div class="checkout-input-group">
+          <label>Pincode</label>
+          <input type="text" placeholder="411036" maxlength="6" required>
+        </div>
+
+        <div class="checkout-input-group form-full-width">
+          <label>Select Payment Method</label>
+          <div class="payment-options-row">
+            <div class="payment-method-card active" onclick="this.parentElement.querySelectorAll('.payment-method-card').forEach(c=>c.classList.remove('active')); this.classList.add('active');">
+              <i class="fas fa-mobile-alt"></i><br>UPI / GPay
+            </div>
+            <div class="payment-method-card" onclick="this.parentElement.querySelectorAll('.payment-method-card').forEach(c=>c.classList.remove('active')); this.classList.add('active');">
+              <i class="fas fa-credit-card"></i><br>Cards / EMI
+            </div>
+            <div class="payment-method-card" onclick="this.parentElement.querySelectorAll('.payment-method-card').forEach(c=>c.classList.remove('active')); this.classList.add('active');">
+              <i class="fas fa-money-bill-wave"></i><br>Cash on Delivery
+            </div>
+          </div>
+        </div>
+
+        <div class="form-full-width" style="margin-top:10px;">
+          <button type="submit" class="btn-proceed-checkout">Place Order Now</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Order Success Screen -->
+    <div id="order-success-screen" class="order-success-screen">
+      <div class="success-check-icon"><i class="fas fa-check"></i></div>
+      <h3 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:8px;">Thank You for Your Order!</h3>
+      <p style="color:#6b6660; margin-bottom:14px;">Your order has been received and is being prepared for dispatch.</p>
+      <div style="background:#f7f4ed; border:1px solid #e8e2d8; padding:12px; border-radius:4px; margin-bottom:20px; font-weight:600;">
+        Order Tracking ID: <span id="order-generated-id" style="color:#c5a059;">AUR-2026-894721</span>
+      </div>
+      <p style="font-size:0.85rem; color:#857e75; margin-bottom:24px;">An order confirmation SMS and WhatsApp update has been sent.</p>
+      <button class="btn-primary-luxury" onclick="closeAllModals();">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       LIVE PREDICTIVE SEARCH MODAL
+       ========================================================================== -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-label="Search Site">
+    <div class="container">
+      <div class="search-bar-inner">
+        <i class="fas fa-search" style="font-size:1.5rem; color:#c5a059;"></i>
+        <input type="text" id="main-search-input" class="search-input-field" placeholder="Search earrings, 18k necklaces, rings, mangalsutras..." oninput="handleSearchInput(this.value)">
+        <button class="btn-close-drawer" onclick="closeSearchModal()" aria-label="Close Search">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="search-results-tray" id="search-results-tray">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== -->
+  <div class="toast-notification" id="toast-notification" role="status">
+    <span class="toast-icon"><i class="fas fa-check-circle"></i></span>
+    <span id="toast-text">Item updated in your Bag</span>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING CONCIERGE / WHATSAPP BUTTON
+       ========================================================================== -->
+  <div class="floating-concierge-btn" onclick="openWhatsAppSupport()" title="Chat with Jewellery Concierge">
+    <i class="fab fa-whatsapp"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
