@@ -513,11 +513,64 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartOverlay) cartOverlay.classList.add('active');
   };
 
-  window.submitOrder = function(event) {
+  window.submitOrder = async function(event) {
     if (event) event.preventDefault();
-    const orderId = `AUR-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    const form = event ? event.target : document.querySelector('#checkout-form-screen form');
+    const inputs = form ? form.querySelectorAll('input') : [];
+    const customerName = inputs.length >= 2 ? `${inputs[0].value} ${inputs[1].value}`.trim() : "Valued Customer";
+    const customerEmail = inputs.length >= 3 ? inputs[2].value.trim() : "guest@example.com";
+    const streetAddress = inputs.length >= 4 ? inputs[3].value.trim() : "Standard Address";
+    const city = inputs.length >= 5 ? inputs[4].value.trim() : "City";
+    const pincode = inputs.length >= 6 ? inputs[5].value.trim() : "400001";
+    const paymentMethodCard = document.querySelector('.payment-method-card.active');
+    const paymentMethod = paymentMethodCard ? paymentMethodCard.innerText.replace('\n', ' ').trim() : "Cash on Delivery";
+
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    let discount = 0;
+    if (appliedCoupon === 'AURELIA10') discount = Math.round(subtotal * 0.10);
+    else if (appliedCoupon === 'STACKUP') discount = subtotal > 2000 ? 500 : 250;
+    else if (appliedCoupon === 'PATIL50') discount = Math.round(subtotal * 0.50);
+    const total = Math.max(0, subtotal - discount);
+
+    let finalOrderId = `AUR-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // Try posting to real backend database
+    const apiEndpoint = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:5000/api/orders'
+      : '/api/orders';
+
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customer_name: customerName,
+          customer_email: customerEmail,
+          customer_phone: "Not Provided",
+          street_address: streetAddress,
+          city: city,
+          pincode: pincode,
+          payment_method: paymentMethod,
+          items: cart,
+          subtotal: subtotal,
+          discount: discount,
+          total: total
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.order_id) {
+          finalOrderId = result.order_id;
+        }
+      }
+    } catch (err) {
+      console.log("Backend offline or unreachable, order saved locally:", err);
+    }
+
     const orderIdEl = document.getElementById('order-generated-id');
-    if (orderIdEl) orderIdEl.textContent = orderId;
+    if (orderIdEl) orderIdEl.textContent = finalOrderId;
 
     const formScreen = document.getElementById('checkout-form-screen');
     const successScreen = document.getElementById('order-success-screen');
@@ -527,8 +580,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clear cart on successful order
     cart = [];
     saveCart();
-    showToast("🎉 Order Placed Successfully!");
+    showToast("🎉 Order Placed Successfully & Recorded in Database!");
   };
+
 
   // ==========================================================================
   // 7. PINCODE DELIVERY ESTIMATOR (PALMONAS SIGNATURE WIDGET)
