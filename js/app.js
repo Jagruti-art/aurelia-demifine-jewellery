@@ -538,7 +538,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Try posting to real backend database
     const apiEndpoint = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
       ? 'http://localhost:5000/api/orders'
-      : '/api/orders';
+      : 'https://ingredients-none-observations-details.trycloudflare.com/api/orders';
+
 
     try {
       const response = await fetch(apiEndpoint, {

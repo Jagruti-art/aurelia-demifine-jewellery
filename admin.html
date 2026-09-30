@@ -404,10 +404,11 @@
   </div>
 
   <script>
-    // Auto-detect backend host: use localhost:5000 if running locally or relative /api
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    // Auto-detect backend host: use localhost:5000 if running locally or live cloudflare backend URL
+    const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') 
       ? 'http://localhost:5000/api' 
-      : '/api';
+      : 'https://ingredients-none-observations-details.trycloudflare.com/api';
+
 
     function switchTab(tabName) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
